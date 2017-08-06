@@ -1,18 +1,24 @@
 def substrings string, dictionary
-    result = {}
+    @result = {}
+    input = string.split(" ")
     dictionary.each do |word|
-        if word.include? string
-            if result.include? word.to_s
-                result[:word] += 1
-            else 
-                result[:word] = 1
-            end
+        input.each do |str|
+            compare(str, word)
         end
     end
-
+    puts @result
 end
 
+def compare str, word
+    if str.downcase.include? word
+        if @result.include? word
+            @result[word] += 1  
+        else 
+            @result[word] = 1
+        end
+    end
+end
 
 dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
 
-substrings("below", dictionary)
+substrings("Howdy partner, sit down! How's it going?", dictionary)
