@@ -1,5 +1,5 @@
-def substrings string, dictionary
-    @result = {}
+def substrings(string, dictionary)
+    @result = { }
     input = string.split(" ")
     dictionary.each do |word|
         input.each do |str|
@@ -9,7 +9,7 @@ def substrings string, dictionary
     puts @result
 end
 
-def compare str, word
+def compare(str, word)
     if str.downcase.include? word
         if @result.include? word
             @result[word] += 1  
